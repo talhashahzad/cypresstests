@@ -6,7 +6,6 @@ workflows:
     jobs:
       - cypress/install:
           build: "npm run build" # run a custom app build step
-          run: "npx browserslist@latest --update-db"
       - cypress/run:
           requires:
             - cypress/install
