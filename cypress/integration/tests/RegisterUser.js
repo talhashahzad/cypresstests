@@ -11,8 +11,12 @@ describe("register user page test", () => {
   });
   it("login successful test", () => {
     cy.get(".font-weight-light").should("exist").contains("Register");
+
     cy.get("#displayName").type("hamza");
+
+    //you will have to add a unique email everytime you run this test for it to be successful
     cy.get("#email").type("hamza@abc.com");
+
     cy.get("[name=passOne]").type("abcd123");
     cy.get("[name=passTwo]").type("abcd123");
 

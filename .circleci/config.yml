@@ -1,17 +1,12 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1
-  react: thefrontside/react@0.1.0
 workflows:
-  push:
-    jobs:
-      - react/install
-      - react/test:
-          requires:
-            - react/install
   build:
     jobs:
+      - cypress/install:
+          build: "npm run build" # run a custom app build step
       - cypress/run:
-          start: npm start
-          wait-on: "http://localhost:3000"
-          no-workspace: true
+          requires:
+            - cypress/install
+          start: "npm start" # start server before running tests
