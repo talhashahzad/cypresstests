@@ -4,7 +4,7 @@ This is a test project app.
 
 ## Cypress Tests
 
-1. Cypress tests are in folder => meeting-log-project\cypress\integration\tests
+1. Cypress tests are in folder => cypresstests\cypress\integration\tests
 
 ## Installing
 
