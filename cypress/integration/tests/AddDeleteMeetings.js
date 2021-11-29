@@ -11,7 +11,16 @@ describe("add meetings test", () => {
       .children()
       .children()
       .its("length")
-      .should("be.gt", 0);
+      .then((length) => {
+        cy.get("[type=text]").type("newmeeting");
+        cy.get("#buttonAdd").click();
+        cy.log(length);
+        cy.get("[id=meetingList]")
+          .children()
+          .children()
+          .its("length")
+          .should("be.gt", length);
+      });
   });
   it("delete meeting", () => {
     cy.get("[id=meetingList]")
